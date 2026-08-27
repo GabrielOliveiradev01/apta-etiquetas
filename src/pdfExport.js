@@ -13,12 +13,12 @@ export function padNumber(n) {
  * Builds a jsPDF document with one page per label (80x30mm each), numbered
  * sequentially starting at `startNumber` (or blank if null).
  *
- * The fixed "Padrão" layout + Campo 1 logo never change within a batch, so
- * they're rasterized once and reused (by alias) on every page; only the
- * Campo 2 number is drawn per page, as vector text. This keeps a 500-label
- * PDF a few hundred KB instead of ballooning to hundreds of MB.
+ * Campo 1 logo never changes within a batch, so it's rasterized once and
+ * reused (by alias) on every page; only the Campo 2 number is drawn per
+ * page, as vector text. This keeps a 500-label PDF a few hundred KB instead
+ * of ballooning to hundreds of MB.
  */
-export function generateLabelsPdf({ clientLogoImg, manufacturerLogoImg, startNumber, quantity, layout }) {
+export function generateLabelsPdf({ clientLogoImg, startNumber, quantity, layout }) {
   const hasNumbering = startNumber !== null && startNumber !== undefined;
   const numberPos = layout.numberDigits;
 
@@ -29,7 +29,6 @@ export function generateLabelsPdf({ clientLogoImg, manufacturerLogoImg, startNum
   ctx.scale(RENDER_SCALE, RENDER_SCALE);
   drawLabel(ctx, {
     clientLogoImg,
-    manufacturerLogoImg,
     numberText: hasNumbering ? NUMBER_LABEL_ONLY : null,
     layout,
   });

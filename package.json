@@ -14,7 +14,6 @@
   "type": "module",
   "private": "true",
   "dependencies": {
-    "jsbarcode": "^3.12.3",
     "jspdf": "^4.2.1",
     "pdfjs-dist": "^6.2.108"
   },

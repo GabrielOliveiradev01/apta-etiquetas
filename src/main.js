@@ -4,7 +4,6 @@ import { generateLabelsPdf, padNumber } from "./pdfExport.js";
 import { mergeLayout } from "./layoutConfig.js";
 import { buildConfigPanel, updatePanelInputs } from "./configPanel.js";
 import { attachInteractivePreview } from "./interactivePreview.js";
-import aptaLogoUrl from "./assets/apta-logo.png";
 
 const MAX_QUANTITY = 500;
 const MAX_START_NUMBER = 100000;
@@ -28,14 +27,6 @@ const previewCtx = previewCanvas.getContext("2d");
 previewCtx.scale(PREVIEW_SCALE, PREVIEW_SCALE);
 
 let clientLogoImg = null;
-let manufacturerLogoImg = null;
-
-const mfgLogoImgEl = new Image();
-mfgLogoImgEl.onload = () => {
-  manufacturerLogoImg = mfgLogoImgEl;
-  updatePreview();
-};
-mfgLogoImgEl.src = aptaLogoUrl;
 
 function loadStoredLayout() {
   try {
@@ -88,7 +79,6 @@ function updatePreview() {
   const numberText = startNumber !== null && !Number.isNaN(startNumber) ? padNumber(startNumber) : null;
   return drawLabel(previewCtx, {
     clientLogoImg,
-    manufacturerLogoImg,
     numberText,
     layout,
   });
@@ -157,7 +147,6 @@ async function handleGenerate() {
   try {
     const doc = generateLabelsPdf({
       clientLogoImg,
-      manufacturerLogoImg,
       startNumber: form.startNumber,
       quantity: form.quantity,
       layout,
