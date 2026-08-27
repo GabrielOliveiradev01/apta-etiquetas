@@ -7,7 +7,7 @@ import { attachInteractivePreview } from "./interactivePreview.js";
 
 const MAX_QUANTITY = 500;
 const MAX_START_NUMBER = 100000;
-const LAYOUT_STORAGE_KEY = "apta-etiquetas-layout-v1";
+const LAYOUT_STORAGE_KEY = "apta-etiquetas-layout-v2";
 
 const logoInput = document.getElementById("logo-input");
 const logoStatus = document.getElementById("logo-status");

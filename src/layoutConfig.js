@@ -7,8 +7,8 @@
 
 export const DEFAULT_LAYOUT = {
   clientLogo: { x: 2, y: 2, w: 24, h: 10 },
-  numberLabel: { x: 58, y: 7.5, fontSize: 3, text: "Nº" },
-  numberDigits: { x: 62, y: 8, fontSize: 5.5 },
+  numberLabel: { x: 60, y: 6.6, fontSize: 1.8, text: "Nº" },
+  numberDigits: { x: 63, y: 7, fontSize: 3 },
   patientFields: {
     x: 2,
     y: 15.5,
@@ -47,7 +47,7 @@ export const LAYOUT_SCHEMA = [
       { key: "text", label: "Texto", type: "text" },
       { key: "x", label: "Posição X", type: "number", min: 0, max: 78, step: 0.5 },
       { key: "y", label: "Posição Y", type: "number", min: 2, max: 28, step: 0.5 },
-      { key: "fontSize", label: "Tamanho da fonte", type: "number", min: 1, max: 8, step: 0.1 },
+      { key: "fontSize", label: "Tamanho da fonte", type: "number", min: 0.3, max: 40, step: 0.1 },
     ],
   },
   {
@@ -56,7 +56,7 @@ export const LAYOUT_SCHEMA = [
     fields: [
       { key: "x", label: "Posição X", type: "number", min: 0, max: 78, step: 0.5 },
       { key: "y", label: "Posição Y", type: "number", min: 2, max: 28, step: 0.5 },
-      { key: "fontSize", label: "Tamanho máx. da fonte", type: "number", min: 2, max: 16, step: 0.1 },
+      { key: "fontSize", label: "Tamanho máx. da fonte", type: "number", min: 0.3, max: 40, step: 0.1 },
     ],
   },
   {
@@ -73,8 +73,8 @@ export const LAYOUT_SCHEMA = [
       { key: "x", label: "Posição X", type: "number", min: 0, max: 78, step: 0.5 },
       { key: "y", label: "Posição Y (1ª linha)", type: "number", min: 2, max: 28, step: 0.5 },
       { key: "width", label: "Largura das linhas", type: "number", min: 10, max: 78, step: 0.5 },
-      { key: "fontSize", label: "Tamanho da fonte", type: "number", min: 1, max: 5, step: 0.05 },
-      { key: "pitch", label: "Espaço entre linhas", type: "number", min: 1, max: 6, step: 0.05 },
+      { key: "fontSize", label: "Tamanho da fonte", type: "number", min: 0.3, max: 40, step: 0.05 },
+      { key: "pitch", label: "Espaço entre linhas", type: "number", min: 0.3, max: 40, step: 0.05 },
     ],
   },
 ];

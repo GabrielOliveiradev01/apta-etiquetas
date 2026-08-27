@@ -122,7 +122,7 @@ export function drawLabel(ctx, opts) {
     textHit("numberLabel", L.numberLabel.text, L.numberLabel.x, L.numberLabel.y, L.numberLabel.fontSize);
     if (numberText !== NUMBER_LABEL_ONLY) {
       const digitsMaxWidth = Math.max(LABEL_W - L.numberDigits.x - 1.5, 5);
-      const numberFont = fitSingleLineFont(ctx, numberText, digitsMaxWidth, L.numberDigits.fontSize, 3, "bold");
+      const numberFont = fitSingleLineFont(ctx, numberText, digitsMaxWidth, L.numberDigits.fontSize, 0.3, "bold");
       ctx.font = `bold ${numberFont}px sans-serif`;
       ctx.fillText(numberText, L.numberDigits.x, L.numberDigits.y);
       textHit("numberDigits", numberText, L.numberDigits.x, L.numberDigits.y, numberFont);

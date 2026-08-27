@@ -1,9 +1,14 @@
 import { LABEL_W, LABEL_H } from "./layout.js";
 
 const HANDLE_MM = 3; // resize-handle hit zone at an element's bottom-right corner
-const MIN_BOX = 3;
-const MIN_FONT = 1;
-const MIN_SIZE = 1.2;
+const MIN_BOX = 1.5;
+// Font/icon size resize is intentionally left with no real ceiling and only
+// a tiny floor (just enough to keep the canvas from rendering a zero/negative
+// size) — the user drags as big or as small as they want.
+const MIN_FONT = 0.3;
+const MAX_FONT = 200;
+const MIN_SIZE = 0.3;
+const MAX_SIZE = 200;
 
 function clamp(v, min, max) {
   return Math.min(max, Math.max(min, v));
@@ -110,9 +115,9 @@ export function attachInteractivePreview({ canvas, ctx, scale, getLayout, redraw
         cfg.w = clamp(dragging.startCfg.w + dx, MIN_BOX, LABEL_W);
         cfg.h = clamp(dragging.startCfg.h + dy, MIN_BOX, LABEL_H);
       } else if (dragging.resizeType === "size") {
-        cfg.size = clamp(dragging.startCfg.size + (dx + dy) / 2, MIN_SIZE, 15);
+        cfg.size = clamp(dragging.startCfg.size + (dx + dy) / 2, MIN_SIZE, MAX_SIZE);
       } else if (dragging.resizeType === "font") {
-        cfg.fontSize = clamp(dragging.startCfg.fontSize + (dx + dy) / 6, MIN_FONT, 12);
+        cfg.fontSize = clamp(dragging.startCfg.fontSize + (dx + dy) / 6, MIN_FONT, MAX_FONT);
       }
     }
   }
