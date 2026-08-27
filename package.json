@@ -1,0 +1,24 @@
+{
+  "name": "apta-etiquetas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "private": "true",
+  "dependencies": {
+    "jsbarcode": "^3.12.3",
+    "jspdf": "^4.2.1",
+    "pdfjs-dist": "^6.2.108"
+  },
+  "devDependencies": {
+    "vite": "^8.2.2"
+  }
+}

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerador de Etiquetas - Apta Biotech</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <h1>Gerador de Etiquetas</h1>
+        <p class="subtitle">Etiqueta 80&times;30mm &mdash; Formalina 10% Fixador celular</p>
+      </header>
+
+      <main class="layout">
+        <section class="panel form-panel">
+          <h2>Configuração</h2>
+
+          <div class="field">
+            <label for="logo-input">Logo do laboratório (Campo 1)</label>
+            <input type="file" id="logo-input" accept=".jpg,.jpeg,.png,.pdf,image/jpeg,image/png,application/pdf" />
+            <p class="hint">JPG, PNG ou PDF, até 5MB. Encaixa numa área de até 27&times;20mm. Opcional.</p>
+            <div id="logo-status" class="status"></div>
+            <button type="button" id="logo-clear" class="link-btn" hidden>Remover logo</button>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="start-number">Número inicial (Campo 2)</label>
+              <input type="number" id="start-number" min="1" max="100000" placeholder="ex: 123" />
+              <p class="hint">1 a 100000. Deixe em branco para etiquetas sem número.</p>
+            </div>
+            <div class="field">
+              <label for="quantity">Quantidade de etiquetas</label>
+              <input type="number" id="quantity" min="1" max="500" value="1" />
+              <p class="hint">Até 500 por geração.</p>
+            </div>
+          </div>
+
+          <div id="form-error" class="error" hidden></div>
+
+          <button type="button" id="generate-btn" class="primary-btn">Baixar PDF</button>
+        </section>
+
+        <section class="panel preview-panel">
+          <h2>Pré-visualização</h2>
+          <div class="preview-frame">
+            <canvas id="preview-canvas"></canvas>
+          </div>
+          <p class="hint">O número exibido aqui é só um exemplo (primeiro da sequência). Clique e arraste qualquer elemento pra mover; arraste o cantinho (quando aparecer) pra redimensionar.</p>
+        </section>
+      </main>
+
+      <section class="panel layout-panel">
+        <div class="layout-panel-header">
+          <h2>Ajustes finos do layout</h2>
+          <button type="button" id="layout-reset-btn" class="link-btn">Restaurar padrão</button>
+        </div>
+        <p class="hint">Abra cada item para ajustar posição (X/Y), tamanho de fonte, largura ou altura. As mudanças aparecem na pré-visualização na hora e ficam salvas neste navegador.</p>
+        <div id="layout-config"></div>
+      </section>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
