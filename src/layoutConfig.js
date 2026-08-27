@@ -7,8 +7,8 @@
 
 export const DEFAULT_LAYOUT = {
   clientLogo: { x: 2, y: 2, w: 24, h: 10 },
-  numberLabel: { x: 56, y: 8.5, fontSize: 4, text: "Nº" },
-  numberDigits: { x: 61, y: 9.5, fontSize: 8 },
+  numberLabel: { x: 58, y: 7.5, fontSize: 3, text: "Nº" },
+  numberDigits: { x: 62, y: 8, fontSize: 5.5 },
   patientFields: {
     x: 2,
     y: 15.5,
