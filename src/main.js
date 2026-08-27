@@ -4,6 +4,7 @@ import { generateLabelsPdf, padNumber } from "./pdfExport.js";
 import { mergeLayout } from "./layoutConfig.js";
 import { buildConfigPanel, updatePanelInputs } from "./configPanel.js";
 import { attachInteractivePreview } from "./interactivePreview.js";
+import aptaLogoUrl from "./assets/apta-logo.png";
 
 const MAX_QUANTITY = 500;
 const MAX_START_NUMBER = 100000;
@@ -27,7 +28,14 @@ const previewCtx = previewCanvas.getContext("2d");
 previewCtx.scale(PREVIEW_SCALE, PREVIEW_SCALE);
 
 let clientLogoImg = null;
-const manufacturerLogoImg = null; // placeholder until the manufacturer logo file is provided
+let manufacturerLogoImg = null;
+
+const mfgLogoImgEl = new Image();
+mfgLogoImgEl.onload = () => {
+  manufacturerLogoImg = mfgLogoImgEl;
+  updatePreview();
+};
+mfgLogoImgEl.src = aptaLogoUrl;
 
 function loadStoredLayout() {
   try {
